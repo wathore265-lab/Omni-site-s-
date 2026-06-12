@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maruti Suzuki Omni E — India Ka Apna Van</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #162436;
+    --saffron: #F4A623;
+    --saffron-dark: #D4891A;
+    --cream: #F5EFE0;
+    --cream-dark: #E8DFC8;
+    --steel: #8B9099;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(244,166,35,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--saffron); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+  nav ul a {
+    text-decoration: none;
+    color: var(--steel);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--saffron); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 7rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 22vw, 22rem);
+    color: rgba(244,166,35,0.04);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 .accent { color: var(--saffron); }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--steel);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin-top: 0.8rem;
+    margin-bottom: 3rem;
+  }
+
+  /* VAN SVG */
+  .van-container {
+    position: relative;
+    width: min(700px, 90vw);
+    margin: 2rem auto 3rem;
+    animation: floatVan 4s ease-in-out infinite;
+  }
+  @keyframes floatVan {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .van-svg {
+    width: 100%;
+    filter: drop-shadow(0 30px 60px rgba(244,166,35,0.2));
+  }
+
+  /* headlight glow pulse */
+  .hl-glow {
+    animation: hlPulse 2.5s ease-in-out infinite;
+  }
+  @keyframes hlPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--saffron);
+    color: var(--navy);
+    padding: 0.85rem 2.2rem;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--saffron-dark); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    padding: 0.85rem 2.2rem;
+    border: 1px solid rgba(245,239,224,0.3);
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--saffron); color: var(--saffron); }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(244,166,35,0.3), transparent);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--navy-mid);
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    border-top: 1px solid rgba(244,166,35,0.1);
+    border-bottom: 1px solid rgba(244,166,35,0.1);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: var(--saffron);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.3rem;
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 6rem 3rem; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--steel);
+    line-height: 1.75;
+    max-width: 520px;
+  }
+
+  /* LEGACY SECTION */
+  .legacy {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .legacy-visual {
+    position: relative;
+  }
+
+  .legacy-decade-badge {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    width: 110px;
+    height: 110px;
+    background: var(--saffron);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .badge-num {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  .legacy-image-box {
+    background: var(--navy-mid);
+    border: 1px solid rgba(244,166,35,0.15);
+    border-radius: 8px;
+    padding: 2.5rem;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .legacy-image-box svg {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  /* SPECS */
+  .specs-section {
+    background: var(--navy-mid);
+  }
+
+  .specs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .specs-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(244,166,35,0.1);
+    border: 1px solid rgba(244,166,35,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .spec-card {
+    background: var(--navy-mid);
+    padding: 2rem 1.8rem;
+    transition: background 0.2s;
+  }
+  .spec-card:hover { background: #1a2f47; }
+
+  .spec-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .spec-name {
+    font-size: 0.7rem;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.3rem;
+  }
+
+  .spec-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--white);
+  }
+
+  .spec-sub {
+    font-size: 0.78rem;
+    color: var(--steel);
+    margin-top: 0.2rem;
+  }
+
+  /* FEATURES */
+  .features-section {
+    background: var(--navy);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    border: 1px solid rgba(244,166,35,0.12);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .feature-card:hover {
+    border-color: rgba(244,166,35,0.4);
+    transform: translateY(-3px);
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--saffron);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: rgba(244,166,35,0.08);
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+  }
+
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .feature-desc {
+    font-size: 0.88rem;
+    color: var(--steel);
+    line-height: 1.65;
+  }
+
+  /* VARIANTS */
+  .variants-section {
+    background: var(--navy-mid);
+  }
+
+  .variants-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .variants-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .variant-card {
+    background: var(--navy);
+    border: 1px solid rgba(244,166,35,0.12);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: border-color 0.25s;
+    position: relative;
+  }
+
+  .variant-card.popular {
+    border-color: var(--saffron);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--saffron);
+    color: var(--navy);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.9rem;
+    border-radius: 20px;
+  }
+
+  .variant-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .variant-capacity {
+    font-size: 0.78rem;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .variant-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--saffron);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .variant-price-label {
+    font-size: 0.7rem;
+    color: var(--steel);
+    margin-bottom: 1.8rem;
+  }
+
+  .variant-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .variant-features li {
+    font-size: 0.83rem;
+    color: var(--steel);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(139,144,153,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .variant-features li::before {
+    content: '✓';
+    color: var(--saffron);
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* QUOTE SECTION */
+  .quote-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    opacity: 0.03;
+    color: var(--saffron);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    pointer-events: none;
+  }
+
+  blockquote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  blockquote em {
+    color: var(--saffron);
+    font-style: normal;
+  }
+
+  .quote-source {
+    font-size: 0.78rem;
+    color: var(--steel);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080F18;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(244,166,35,0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--saffron); }
+
+  .footer-note {
+    font-size: 0.75rem;
+    color: var(--steel);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    color: var(--steel);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--saffron); }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1.5rem; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .legacy { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .variants-cards { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .features-section { padding: 4rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+    .specs-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; flex-wrap: wrap; gap: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">OMNI <span>E</span></div>
+  <ul>
+    <li><a href="#legacy">Legacy</a></li>
+    <li><a href="#specs">Specs</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#variants">Variants</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">OMNI</div>
+
+  <p class="hero-eyebrow">Maruti Suzuki &nbsp;·&nbsp; Since 1984</p>
+
+  <h1>INDIA KA<br><span class="accent">APNA VAN</span></h1>
+  <p class="hero-tagline">Built for every road. Trusted by every family.</p>
+
+  <!-- SVG Van Illustration -->
+  <div class="van-container">
+    <svg class="van-svg" viewBox="0 0 700 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <rect x="60" y="100" width="560" height="180" rx="14" fill="#162436"/>
+      <!-- Roof -->
+      <rect x="90" y="60" width="500" height="50" rx="10" fill="#1E3148"/>
+      <!-- Roof slope front -->
+      <path d="M90 110 L90 60 L130 60 L90 110Z" fill="#1E3148"/>
+      <!-- Front face -->
+      <rect x="60" y="100" width="60" height="180" rx="0" fill="#1A2D44"/>
+      <rect x="60" y="100" width="60" height="180" rx="8" fill="#1A2D44"/>
+      <!-- Windshield -->
+      <rect x="95" y="68" width="85" height="70" rx="6" fill="#0D2238" opacity="0.9"/>
+      <!-- Rear window -->
+      <rect x="540" y="70" width="70" height="65" rx="6" fill="#0D2238" opacity="0.8"/>
+      <!-- Side windows row -->
+      <rect x="200" y="70" width="80" height="55" rx="5" fill="#0D2238" opacity="0.8"/>
+      <rect x="310" y="70" width="80" height="55" rx="5" fill="#0D2238" opacity="0.8"/>
+      <rect x="420" y="70" width="80" height="55" rx="5" fill="#0D2238" opacity="0.8"/>
+      <!-- Door line -->
+      <line x1="200" y1="110" x2="200" y2="278" stroke="#F4A623" stroke-width="1.5" opacity="0.3"/>
+      <line x1="420" y1="110" x2="420" y2="278" stroke="#F4A623" stroke-width="1.5" opacity="0.3"/>
+      <!-- Headlights -->
+      <g class="hl-glow">
+        <rect x="62" y="120" width="26" height="18" rx="4" fill="#F4A623"/>
+        <rect x="62" y="120" width="26" height="18" rx="4" fill="url(#hlGrad)" opacity="0.9"/>
+        <!-- Light beam -->
+        <path d="M62 129 L0 110 L0 148 L62 129Z" fill="url(#beamGrad)" opacity="0.15"/>
+      </g>
+      <!-- Tail lights -->
+      <rect x="614" y="130" width="22" height="16" rx="3" fill="#CC3333"/>
+      <rect x="614" y="150" width="22" height="12" rx="3" fill="#FF6666" opacity="0.6"/>
+      <!-- Grille -->
+      <rect x="62" y="145" width="50" height="28" rx="4" fill="#0D1B2A"/>
+      <line x1="70" y1="150" x2="70" y2="168" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="82" y1="150" x2="82" y2="168" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="94" y1="150" x2="94" y2="168" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="106" y1="150" x2="106" y2="168" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <!-- Bumper front -->
+      <rect x="50" y="245" width="80" height="20" rx="6" fill="#0F1F30"/>
+      <!-- Bumper rear -->
+      <rect x="572" y="245" width="78" height="20" rx="6" fill="#0F1F30"/>
+      <!-- Side stripe -->
+      <rect x="60" y="210" width="580" height="4" rx="2" fill="#F4A623" opacity="0.25"/>
+      <!-- Maruti logo area -->
+      <circle cx="90" cy="95" r="12" fill="#F4A623" opacity="0.9"/>
+      <text x="90" y="100" text-anchor="middle" font-size="11" fill="#0D1B2A" font-weight="900" font-family="Arial">M</text>
+      <!-- Wheels -->
+      <circle cx="175" cy="278" r="38" fill="#0D1B2A" stroke="#344a60" stroke-width="3"/>
+      <circle cx="175" cy="278" r="24" fill="#1A2D44" stroke="#F4A623" stroke-width="1.5"/>
+      <circle cx="175" cy="278" r="8" fill="#F4A623"/>
+      <circle cx="520" cy="278" r="38" fill="#0D1B2A" stroke="#344a60" stroke-width="3"/>
+      <circle cx="520" cy="278" r="24" fill="#1A2D44" stroke="#F4A623" stroke-width="1.5"/>
+      <circle cx="520" cy="278" r="8" fill="#F4A623"/>
+      <!-- Wheel spokes front -->
+      <line x1="175" y1="255" x2="175" y2="301" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="152" y1="278" x2="198" y2="278" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="159" y1="262" x2="191" y2="294" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="191" y1="262" x2="159" y2="294" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <!-- Wheel spokes rear -->
+      <line x1="520" y1="255" x2="520" y2="301" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="497" y1="278" x2="543" y2="278" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="504" y1="262" x2="536" y2="294" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <line x1="536" y1="262" x2="504" y2="294" stroke="#F4A623" stroke-width="1.5" opacity="0.5"/>
+      <!-- Shadow on ground -->
+      <ellipse cx="350" cy="316" rx="260" ry="10" fill="#000" opacity="0.25"/>
+      <defs>
+        <linearGradient id="hlGrad" x1="62" y1="120" x2="88" y2="138" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFF9C4"/>
+          <stop offset="1" stop-color="#F4A623"/>
+        </linearGradient>
+        <linearGradient id="beamGrad" x1="0" y1="129" x2="62" y2="129" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F4A623" stop-opacity="0"/>
+          <stop offset="1" stop-color="#F4A623" stop-opacity="0.8"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#specs" class="btn-primary">Explore Specs</a>
+    <a href="#variants" class="btn-secondary">View Variants</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item reveal">
+    <div class="stat-num">40+</div>
+    <div class="stat-label">Years of Service</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">796</div>
+    <div class="stat-label">cc Engine</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Seater Capacity</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">16.8</div>
+    <div class="stat-label">km/l Mileage</div>
+  </div>
+</div>
+
+<!-- LEGACY -->
+<div id="legacy" style="background: var(--navy);">
+  <div class="legacy" style="padding: 6rem 3rem;">
+    <div class="legacy-text reveal">
+      <p class="section-eyebrow">A Living Legend</p>
+      <h2 class="section-title">FOUR DECADES.<br>ONE VAN.</h2>
+      <p class="section-body">
+        The Maruti Suzuki Omni first rolled off Indian roads in 1984 — a boxy, no-nonsense machine that quickly became the backbone of India's mobility. Ambulances, school vans, family road trips, kirana deliveries. The Omni did it all, without complaint.
+      </p>
+      <p class="section-body" style="margin-top: 1rem;">
+        The Omni E variant brought a refined MPI engine, giving it more refinement while keeping the ruggedness and spaciousness that made the Omni iconic.
+      </p>
+    </div>
+    <div class="legacy-visual reveal">
+      <div class="legacy-decade-badge">
+        <span class="badge-num">1984</span>
+        <span class="badge-text">Est.</span>
+      </div>
+      <div class="legacy-image-box">
+        <!-- Simplified retro van illustration -->
+        <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="50" width="330" height="130" rx="10" fill="#1A2D44"/>
+          <rect x="50" y="30" width="290" height="35" rx="6" fill="#22364A"/>
+          <rect x="50" y="55" width="50" height="100" rx="4" fill="#162436"/>
+          <rect x="55" y="60" width="40" height="50" rx="3" fill="#0D2238" opacity="0.8"/>
+          <rect x="130" y="38" width="55" height="42" rx="4" fill="#0D2238" opacity="0.7"/>
+          <rect x="205" y="38" width="55" height="42" rx="4" fill="#0D2238" opacity="0.7"/>
+          <rect x="280" y="38" width="55" height="42" rx="4" fill="#0D2238" opacity="0.7"/>
+          <rect x="32" y="90" width="24" height="14" rx="3" fill="#F4A623"/>
+          <circle cx="120" cy="180" r="28" fill="#0D1B2A" stroke="#F4A623" stroke-width="2"/>
+          <circle cx="120" cy="180" r="14" fill="#1A2D44"/>
+          <circle cx="120" cy="180" r="5" fill="#F4A623"/>
+          <circle cx="295" cy="180" r="28" fill="#0D1B2A" stroke="#F4A623" stroke-width="2"/>
+          <circle cx="295" cy="180" r="14" fill="#1A2D44"/>
+          <circle cx="295" cy="180" r="5" fill="#F4A623"/>
+          <rect x="30" y="155" width="330" height="6" rx="3" fill="#F4A623" opacity="0.15"/>
+          <text x="200" y="130" text-anchor="middle" font-family="'Barlow Condensed', Arial" font-weight="900" font-size="28" fill="rgba(244,166,35,0.12)">OMNI E</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECS -->
+<section id="specs" class="specs-section">
+  <div class="specs-inner">
+    <div class="specs-header reveal">
+      <p class="section-eyebrow">Under the Hood</p>
+      <h2 class="section-title">SPECIFICATIONS</h2>
+    </div>
+    <div class="specs-grid reveal">
+      <div class="spec-card">
+        <span class="spec-icon">🔧</span>
+        <div class="spec-name">Engine</div>
+        <div class="spec-value">796 cc</div>
+        <div class="spec-sub">MPI Petrol, 3-cylinder</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">⚡</span>
+        <div class="spec-name">Max Power</div>
+        <div class="spec-value">34 bhp</div>
+        <div class="spec-sub">@ 5500 rpm</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">🔩</span>
+        <div class="spec-name">Torque</div>
+        <div class="spec-value">59 Nm</div>
+        <div class="spec-sub">@ 3000 rpm</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">⛽</span>
+        <div class="spec-name">Mileage</div>
+        <div class="spec-value">16.8</div>
+        <div class="spec-sub">km/l (ARAI certified)</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">🚗</span>
+        <div class="spec-name">Transmission</div>
+        <div class="spec-value">4-speed</div>
+        <div class="spec-sub">Manual gearbox</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">📏</span>
+        <div class="spec-name">Ground Clearance</div>
+        <div class="spec-value">165 mm</div>
+        <div class="spec-sub">Handles Indian roads</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">🛞</span>
+        <div class="spec-name">Tyre Size</div>
+        <div class="spec-value">145 R12</div>
+        <div class="spec-sub">Radial tyres</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">🪑</span>
+        <div class="spec-name">Seating</div>
+        <div class="spec-value">8 seats</div>
+        <div class="spec-sub">Maximum capacity</div>
+      </div>
+      <div class="spec-card">
+        <span class="spec-icon">🏷️</span>
+        <div class="spec-name">Starting Price</div>
+        <div class="spec-value">₹3.61 L</div>
+        <div class="spec-sub">Ex-showroom</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-section">
+    <div class="reveal">
+      <p class="section-eyebrow">Why India Chose the Omni</p>
+      <h2 class="section-title">BUILT FOR THE<br>REAL INDIA</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-num">01</span>
+        <div class="feature-title">Unmatched Space</div>
+        <p class="feature-desc">The Omni's boxy design is a masterclass in space efficiency. Despite its compact footprint, it fits up to 8 people comfortably — making it the go-to choice for large Indian families and businesses alike.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">02</span>
+        <div class="feature-title">Proven Reliability</div>
+        <p class="feature-desc">Owners routinely clock 2–3 lakh kilometers on the Omni with minimal issues. The 796cc engine is one of the most battle-tested motors in India, with spare parts available at every nook and corner.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">03</span>
+        <div class="feature-title">Easy to Maneuver</div>
+        <p class="feature-desc">Despite seating 8, the Omni is surprisingly agile in city traffic. Its tight turning radius and compact dimensions let it squeeze into spaces where larger MPVs would struggle.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">04</span>
+        <div class="feature-title">Low Cost of Ownership</div>
+        <p class="feature-desc">Annual maintenance costs between ₹2,159–₹3,165 — possibly the lowest of any van in its class. When you need cheap, reliable transportation for daily business, nothing comes close.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">05</span>
+        <div class="feature-title">Versatile Utility</div>
+        <p class="feature-desc">From school vans to ambulances to cargo carriers to family outings — the Omni adapts to any role with ease. It's not just a vehicle; it's a livelihood tool for millions of Indians.</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-num">06</span>
+        <div class="feature-title">MPI Engine Technology</div>
+        <p class="feature-desc">The Omni E's Multi-Point Injection (MPI) engine delivers smoother power delivery and better fuel efficiency than carbureted variants — a meaningful upgrade for daily-use owners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants" class="variants-section">
+  <div class="variants-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Pick Your Configuration</p>
+      <h2 class="section-title">VARIANTS</h2>
+    </div>
+    <div class="variants-cards">
+      <div class="variant-card reveal">
+        <div class="variant-name">Omni E</div>
+        <div class="variant-capacity">5-Seater</div>
+        <div class="variant-price">₹3.21 L</div>
+        <div class="variant-price-label">Ex-showroom (approx.)</div>
+        <ul class="variant-features">
+          <li>796cc MPI Petrol</li>
+          <li>5-passenger seating</li>
+          <li>4-speed manual</li>
+          <li>Rear sliding door</li>
+          <li>16.8 km/l mileage</li>
+        </ul>
+        <a href="#" class="btn-secondary" style="width: 100%; text-align: center;">Enquire</a>
+      </div>
+
+      <div class="variant-card popular reveal">
+        <div class="popular-badge">Most Popular</div>
+        <div class="variant-name">Omni E</div>
+        <div class="variant-capacity">8-Seater</div>
+        <div class="variant-price">₹3.61 L</div>
+        <div class="variant-price-label">Ex-showroom (approx.)</div>
+        <ul class="variant-features">
+          <li>796cc MPI Petrol</li>
+          <li>8-passenger seating</li>
+          <li>4-speed manual</li>
+          <li>Rear sliding door</li>
+          <li>16.8 km/l mileage</li>
+          <li>Ambulance-ready option</li>
+        </ul>
+        <a href="#" class="btn-primary" style="width: 100%; text-align: center;">Enquire</a>
+      </div>
+
+      <div class="variant-card reveal">
+        <div class="variant-name">Omni</div>
+        <div class="variant-capacity">Cargo Van</div>
+        <div class="variant-price">₹3.10 L</div>
+        <div class="variant-price-label">Ex-showroom (approx.)</div>
+        <ul class="variant-features">
+          <li>796cc MPI Petrol</li>
+          <li>Cargo optimised</li>
+          <li>4-speed manual</li>
+          <li>Side-opening rear</li>
+          <li>High payload capacity</li>
+        </ul>
+        <a href="#" class="btn-secondary" style="width: 100%; text-align: center;">Enquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-bg">"</div>
+  <blockquote class="reveal">
+    "Generations of Indians grew up in the back seat of an Omni. It is not just a van — it is a <em>piece of India's story.</em>"
+  </blockquote>
+  <p class="quote-source reveal">— Maruti Suzuki Owners Across India</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OMNI <span>E</span> &nbsp;·&nbsp; Maruti Suzuki India</div>
+  <div class="footer-links">
+    <a href="#">Book a Test Drive</a>
+    <a href="#">Find a Dealer</a>
+    <a href="#">Compare</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-note">© 2026 Maruti Suzuki India Limited. All rights reserved.</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
